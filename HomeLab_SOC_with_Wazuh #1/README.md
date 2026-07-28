@@ -1,5 +1,5 @@
 # Cyber_Security_Projects
-# Project-1: Isolated Lab for RDP Brute-Force Attack Simulation, Wazuh SIEM Triage, and Custom Rule Engineering
+Project-1: Isolated Lab for RDP Brute-Force Attack Simulation, Wazuh SIEM Triage, and Custom Rule Engineering
 # 🛡️ SOC Portfolio Project: RDP Brute-Force Detection & SIEM Rule Engineering
 
 ## 📌 Executive Summary
