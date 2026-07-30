@@ -74,7 +74,8 @@ Figure 3.1: Centralized security event timeline showing high-volume logon failur
 
 ### Phase 4: Custom Detection Engineering & Escalation
 To automatically detect and escalate recurring brute-force patterns from a single host, a custom detection rule was injected into /var/ossec/etc/rules/local_rules.xml: 
-XML
+
+```xml
 <group name="local,">
   <rule id="100002" level="10" frequency="5" timeframe="30">
     <if_matched_sid>60122</if_matched_sid>
@@ -85,7 +86,7 @@ XML
     </mitre>
   </rule>
 </group>
-
+```
 Rule Logic Explanation:
 * id="100002": Custom user-defined rule range.
 * level="10": Severity escalation from standard informational log to high-priority alert.
