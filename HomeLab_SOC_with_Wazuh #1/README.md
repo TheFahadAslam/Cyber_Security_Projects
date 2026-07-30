@@ -35,7 +35,7 @@ All virtual machines were configured within a custom isolated private switch (`V
 1. **Network Binding Verification:** Set up static networking on the Kali Linux attacker node (`192.168.10.10/24`) and confirmed lateral connectivity across the sandbox using ICMP ping tests to both the target (`192.168.10.20`) and SIEM server (`192.168.10.50`).
 2. **Port & Service Enumeration:** Executed an Nmap scan targeting TCP Port 3389 to verify active RDP bindings:
    ```bash 
-   nmap -p 3389 192.168.10.20 ```
+   nmap -p 3389 192.168.10.20 
 Result: Confirmed status 3389/tcp open ms-wbt-server.
 
 Figure 1.1: Nmap scan output confirming open TCP port 3389 on target host 192.168.10.20.
