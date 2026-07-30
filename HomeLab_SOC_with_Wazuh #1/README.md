@@ -94,7 +94,24 @@ Rule Logic Explanation:
 * <if_matched_sid>60122</if_matched_sid>: Evaluates against baseline Windows Event ID 4625 matches.
 * <mitre><id>T1110</id></mitre>: Maps the incident directly to MITRE ATT&CK T1110 (Brute Force).
 
-**NOTE: [sorry, but we've to change the logic here, 1st for Win_PC, then, also for prebuilt bruteforce rule, to uplift the alert to level 15 or more}**
+**NOTE: [sorry, but we've to change the logic here, 1st for Win_PC, then, also for prebuilt bruteforce rule, to uplift the alert to level 15 or more}
+True One is Below**
+
+```xml
+
+<group name="windows,windows_security,rdp">
+
+  <!-- Rule 100002 escalates composite RDP authentication abuse patterns -->
+  <rule id="100002" level="15">
+    <if_sid>60204</if_sid>
+    <description>Portfolio Project Alert: Custom RDP Brute Force Detected</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+</group>
+
+```
 
 --------------------------------------------------------------
 
