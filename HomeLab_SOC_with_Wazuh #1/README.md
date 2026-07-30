@@ -76,6 +76,7 @@ Figure 3.1: Centralized security event timeline showing high-volume logon failur
 To automatically detect and escalate recurring brute-force patterns from a single host, a custom detection rule was injected into /var/ossec/etc/rules/local_rules.xml:
 
  **// sorry, but we've to change the logic here, 1st for Win_PC, then, also for prebuilt bruteforce rule, to uplift the alert to level 15 or more**
+ 
 XML
 <group name="local,">
   <rule id="100002" level="10" frequency="5" timeframe="30">
