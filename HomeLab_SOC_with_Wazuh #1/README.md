@@ -73,10 +73,7 @@ Figure 3.1: Centralized security event timeline showing high-volume logon failur
 ---------------------------------------------------
 
 ### Phase 4: Custom Detection Engineering & Escalation
-To automatically detect and escalate recurring brute-force patterns from a single host, a custom detection rule was injected into /var/ossec/etc/rules/local_rules.xml:
-
- **// sorry, but we've to change the logic here, 1st for Win_PC, then, also for prebuilt bruteforce rule, to uplift the alert to level 15 or more**
- 
+To automatically detect and escalate recurring brute-force patterns from a single host, a custom detection rule was injected into /var/ossec/etc/rules/local_rules.xml: 
 XML
 <group name="local,">
   <rule id="100002" level="10" frequency="5" timeframe="30">
@@ -95,6 +92,8 @@ Rule Logic Explanation:
 * frequency="5" timeframe="30": Triggers when 5 failed logons occur from the same source within 30 seconds.
 * <if_matched_sid>60122</if_matched_sid>: Evaluates against baseline Windows Event ID 4625 matches.
 * <mitre><id>T1110</id></mitre>: Maps the incident directly to MITRE ATT&CK T1110 (Brute Force).
+
+**NOTE: [sorry, but we've to change the logic here, 1st for Win_PC, then, also for prebuilt bruteforce rule, to uplift the alert to level 15 or more}**
 
 --------------------------------------------------------------
 
