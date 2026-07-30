@@ -47,8 +47,8 @@ Custom Dictionary Generation: Created a targeted wordlist containing failed cred
 
 Automated Password Spraying: Executed Hydra against the target RDP endpoint with single-threaded verbose output (-t 1 -vV):
 
-Bash
-hydra -l fahad -P ~/Desktop/passwords.txt rdp://192.168.10.20 -vV -t 1
+```bash
+hydra -l Victim_PC_Name -P ~/Desktop/passwords.txt rdp://192.168.10.20 -vV -t 4
 Result: Hydra successfully extracted valid login credentials for user fahad after cycling through failed attempts.
 
 Figure 2.1: Hydra brute-force execution output displaying credential extraction success.
@@ -61,7 +61,7 @@ Plaintext
 data.win.system.eventID: "4625"
 Field Parsing: Extracted critical log key-value pairs to triage the security event:
 
-Target User: data.win.eventdata.targetUserName -> fahad
+Target User: data.win.eventdata.targetUserName -> Win10-VMx64 (PC)
 
 Source IP: data.win.eventdata.ipAddress -> 192.168.10.10
 
@@ -74,6 +74,7 @@ Figure 3.1: Centralized security event timeline showing high-volume logon failur
 ### Phase 4: Custom Detection Engineering & Escalation
 To automatically detect and escalate recurring brute-force patterns from a single host, a custom detection rule was injected into /var/ossec/etc/rules/local_rules.xml:
 
+// ** sorry, but we've to change the logic here, 1st for Win_PC, then, also for prebuilt bruteforce rule, to uplift the alert to level 15 or more **
 XML
 <group name="local,">
   <rule id="100002" level="10" frequency="5" timeframe="30">
